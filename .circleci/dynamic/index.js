@@ -11,7 +11,7 @@ myConfig.addWorkflow(myWorkflow);
 const nodeExecutor = new CircleCI.executors.DockerExecutor('cimg/node:lts');
 
 // Create Job and add it to the config
-const nodeTestJob = new CircleCI.Job('node-test', nodeExecutor);
+const nodeTestJob = new CircleCI.Job('echo-hello-world-test', nodeExecutor);
 myConfig.addJob(nodeTestJob);
 
 // Add steps to job
