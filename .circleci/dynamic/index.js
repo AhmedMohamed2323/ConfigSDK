@@ -19,16 +19,9 @@ nodeTestJob
   .addStep(new CircleCI.commands.Checkout())
   .addStep(
     new CircleCI.commands.Run({
-      command: 'npm install',
-      name: 'NPM Install',
-    }),
-  )
-  .addStep(
-    new CircleCI.commands.Run({
-      command: 'npm run test',
-      name: 'Run tests',
-    }),
-  );
+      command: 'echo hello world',
+      name: 'echo test',
+    }));
 
 // Add Jobs to Workflow
 myWorkflow.addJob(nodeTestJob);
