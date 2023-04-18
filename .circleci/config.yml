@@ -12,7 +12,7 @@ jobs:
     resource_class: small
     steps:
       - checkout
-      - run: node .circleci/generated/generated.index.js
+      - run: node /.circleci/generated/generated.index.js
       - continuation/continue:
           configuration_path: basic_workflow.yml
 
