@@ -1,25 +1,20 @@
 version: 2.1
-
-setup: true
-
-orbs:
-  continuation: circleci/continuation@0.2.0
-
+setup: false
 jobs:
-  setup:
-    docker: 
-      - image: cimg/node:19.7.0
-    resource_class: small
+  node-test:
+    docker:
+      - image: cimg/node:lts
+    resource_class: medium
     steps:
-      - checkout
-      - run: node .circleci/generated/generated.index.js
-      ## remove continuation/contiune 
-      
-      ##- continuation/continue:
-      ##    configuration_path: basic_workflow.yml
-
+      - checkout: {}
+      - run:
+          command: npm install
+          name: NPM Install
+      - run:
+          command: npm run test
+          name: Run tests
 workflows:
-  setup-workflow:
+  myWorkflow:
     jobs:
-      - setup
+      - node-test: {}
 ## 

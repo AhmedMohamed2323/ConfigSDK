@@ -1,30 +1,40 @@
-const CircleCI = require("@circleci/circleci-config-sdk");
+const CircleCI = require('@circleci/circleci-config-sdk');
+// Instantiate new Config
+const myConfig = new CircleCI.Config();
+// Create new Workflow
+const myWorkflow = new CircleCI.Workflow('myWorkflow');
+myConfig.addWorkflow(myWorkflow);
 
-module.exports.basicConfig = function () {
+// Create an executor instance
+// Executors are used directly in jobs
+// and do not need to be added to the config separately
+const nodeExecutor = new CircleCI.executors.DockerExecutor('cimg/node:lts');
 
-  var config = new CircleCI.Config() 
+// Create Job and add it to the config
+const nodeTestJob = new CircleCI.Job('node-test', nodeExecutor);
+myConfig.addJob(nodeTestJob);
 
-  // Define base executor
-  var dockerBase = new CircleCI.executors.DockerExecutor(
-    "cimg/base:2023.02",
-    "small"
+// Add steps to job
+nodeTestJob
+  .addStep(new CircleCI.commands.Checkout())
+  .addStep(
+    new CircleCI.commands.Run({
+      command: 'npm install',
+      name: 'NPM Install',
+    }),
+  )
+  .addStep(
+    new CircleCI.commands.Run({
+      command: 'npm run test',
+      name: 'Run tests',
+    }),
   );
 
-  // Define hello job
-  var helloJob = new CircleCI.Job("hello", dockerBase);
-  helloJob.addStep(new CircleCI.commands.Run({command: "echo hello john"}));
-  config.addJob(helloJob);
+// Add Jobs to Workflow
+myWorkflow.addJob(nodeTestJob);
 
-  // Define workflow
-  var helloWorkflow = new CircleCI.Workflow("hello-workflow");
-  helloWorkflow.addJob(helloJob);
+// The `stringify()` function on `CircleCI.Config` will return the CircleCI YAML equivalent.
+const MyYamlConfig = myConfig.stringify();
 
-  // Add workflow to config
-  config.addWorkflow(helloWorkflow);
-  
-  // Generate YAML config
-  config.writeFile('basic_workflow.yml');
-
-  return config;
-
-};
+// Save the config to a file in Node.js or the browser. Note, use in the browser requires user interaction.
+myConfig.writeFile('config.yml');
