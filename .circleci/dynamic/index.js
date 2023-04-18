@@ -37,4 +37,4 @@ myWorkflow.addJob(nodeTestJob);
 const MyYamlConfig = myConfig.stringify();
 
 // Save the config to a file in Node.js or the browser. Note, use in the browser requires user interaction.
-myConfig.writeFile('config.yml');
+myConfig.writeFile('dynamicConfig.yml');
