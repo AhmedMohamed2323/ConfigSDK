@@ -1,4 +1,4 @@
-const configGen = require('./node_modules/[insert_your_dir_structure]/index.js');
+const configGen = require('circleci-config-sdk');
 
 var config = configGen.basicConfig();
 
