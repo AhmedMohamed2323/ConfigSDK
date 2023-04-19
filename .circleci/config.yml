@@ -19,5 +19,3 @@ workflows:
   dynamic-workflow:
     jobs:
       - generate-config
-
-##
