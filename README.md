@@ -1,20 +1,25 @@
 # ConfigSDK
-The config SDK, dynamic config, and config polices can be used to create a centralized config management system.
 
-Prerequisites
+The CircleCI Config SDK is a JavaScript package library (also compatible with TypeScript) for generating a CircleCI YAML configuration file. Use the SDK to:
 
-A project with a CircleCI config.yml
-A CircleCI scale plan (only needed for config policies)
+Replace writing YAML configuration files
 
-Advantages
+Generate a static YAML configuration file
 
-Locks down who can manipulate CircleCI configs
-Allows for automated distribution of config updates
-Can use CircleCI to test and deploy config changes
-Creating the centralized config repository.
+Modularize and manage your configuration as JavaScript packages
 
-Create a repository for your config SDK module(s). Install the config SDK and create a Javascript/Typescript module.
+Enhance CircleCI’s dynamic configuration
 
-The module can be as dynamic as you’d like, generating configs for multiple environments and/or projects. To start, it may be beneficial to translate current config files into individual JS/TS modules to take advantage of centralized configuration sooner.
+Build integrations with CLI tools or browser-based experiences
 
-Once you are happy with the module, publish the package via NPM.
+For example, generating a static configuration file can be useful for CLI tools where you want to create a CircleCI configuration, or browser-based tooling, such as a visual config editor
+.
+
+Components created with the CircleCI Config SDK can be packaged and distributed as Node packages.
+
+Install the SDK
+Install the CircleCI Config SDK with NPM or Yarn, and include it in your project via Node.js or the browser.
+
+NPM installation: $ npm i @circleci/circleci-config-sdk
+
+https://circleci.com/docs/circleci-config-sdk/?utm_source=google&utm_medium=sem&utm_campaign=sem-google-dg--uscan-en-dsa-tROAS-auth-brand&utm_term=g_-_c__dsa_&utm_content=&gclid=CjwKCAjw__ihBhADEiwAXEazJga_LtRoxxfyztUWox7epLGrxxW_Igr-Re2YVkhivZivhuBKET117RoCfHoQAvD_BwE
