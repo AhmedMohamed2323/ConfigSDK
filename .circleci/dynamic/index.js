@@ -9,7 +9,7 @@ myConfig.addWorkflow(myWorkflow);
 // Executors are used directly in jobs
 // and do not need to be added to the config separately
 const nodeExecutor = new CircleCI.executors.DockerExecutor('cimg/node:lts');
-nodeExecutor.resource_class = "ahmedmohamed2323/mccontainer"
+nodeExecutor.resource_class = "ahmedmohamed2323/maccontainer"
 // Create Job and add it to the config
 const nodeTestJob = new CircleCI.Job('echo-hello-world-test', nodeExecutor);
 myConfig.addJob(nodeTestJob);
