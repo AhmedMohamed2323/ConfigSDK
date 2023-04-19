@@ -29,5 +29,5 @@ myWorkflow.addJob(nodeTestJob);
 // The `stringify()` function on `CircleCI.Config` will return the CircleCI YAML equivalent.
 const MyYamlConfig = myConfig.stringify();
 
-// Save the config to a file in Node.js or the browser. Note, use in the browser requires user interaction.
+// Save the config to a file in Node.js or the browser. Note, use in the browser requires user interaction.....
 myConfig.writeFile('dynamicConfig.yml');
