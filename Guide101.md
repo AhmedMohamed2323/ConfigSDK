@@ -20,7 +20,7 @@ Dynamic folder contains index.js, package-lock.json and package.json files
 
 3) Generate a CircleCI config using TypeScript/Javascript, properly typed for full IntelliSense support.
 
-Take below Circleci Script () and create a index.js ()
+Take below Circleci Script () and create a index.js () * Note Script below isn't the standard. Subject to change due to your own personal build. End goal: myConfig.writeFile('config.yml'
 
 const CircleCI = require('@circleci/circleci-config-sdk');
 // Instantiate new Config
